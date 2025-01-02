@@ -27,7 +27,7 @@ export class Calendar {
   private options: ICalendarOptions;
   private static WeekLength = 7;
 
-  constructor({ minDate = null, maxDate = null, ...options }: IOptions = {}) {
+  constructor({ minDate = null, maxDate = null, callbackDataType = 'calendar', ...options }: IOptions = {}) {
     const defaultWeekDayNames = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
     const defaultOptions: ICalendarOptions = {
       weekDayNames: options.startFromSunday ?
@@ -37,7 +37,7 @@ export class Calendar {
       minDate: this.sanitizeMinMaxDate(minDate),
       maxDate: this.sanitizeMinMaxDate(maxDate),
       averageYears: 14,
-      callbackDataType: 'calendar',
+      callbackDataType,
       ignoreButtonValue: 0,
       yearsInLine: 7,
       startFromSunday: false,
